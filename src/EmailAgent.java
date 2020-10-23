@@ -104,9 +104,7 @@ public class EmailAgent {
         os.write(commandQUIT.getBytes("US-ASCII"));
         response = br.readLine();
         System.out.println(response);
-        if (!response.startsWith("221")) {
-            throw new Exception("221 reply not received from server.\r\n\r\n");
-        }
+        if (!response.startsWith("221")) throw new Exception("221 reply not received from server.\r\n\r\n");
 
         socket.close();
 
@@ -117,3 +115,8 @@ public class EmailAgent {
 
 
 }
+
+
+//resources: https://www.samlogic.net/articles/smtp-commands-reference.htm
+//https://www.geeksforgeeks.org/send-email-using-java-program/
+//https://serverfault.com/questions/509464/error-message-not-sent-server-replied-354/509469#509469
